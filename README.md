@@ -1,8 +1,8 @@
 # Barotrauma Dedicated Server (Docker)
 
-A fully automated, production-ready Docker setup for hosting a Barotrauma Dedicated Server.
+A fully automated Docker setup for hosting a Barotrauma Dedicated Server.
 
-This setup handles updates, mods, configuration, and persistence with zero manual file editing required.
+This setup handles updates, mods and configuration.
 
 ---
 
@@ -16,7 +16,6 @@ This setup handles updates, mods, configuration, and persistence with zero manua
 * Persistent player configuration (`config_player.xml`)
 * Persistent saves (campaigns, missions, logs)
 * Automatic admin assignment via `ADMIN_STEAMID` and `ADMIN_NAME`
-* No `Submarines/` directory required (Workshop submarines load automatically)
 * Built-in healthcheck
 
 ---
