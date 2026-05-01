@@ -1,0 +1,37 @@
+services:
+  barotrauma:
+    build: .
+    container_name: barotrauma-server
+    restart: unless-stopped
+
+    environment:
+      SERVER_NAME: "My Barotrauma Server"
+      MAX_PLAYERS: 10
+      GAME_PORT: 27015
+      QUERY_PORT: 27016
+      PASSWORD: ""
+      IS_PUBLIC: "false"
+
+      # Workshop mods (space-separated)
+      # Example: "2987005010 2559634234"
+      WORKSHOP_ITEMS: ""
+
+      # Admin credentials (Steam2 format)
+      # Example: ADMIN_STEAMID="STEAM_1:1:12345678"
+      ADMIN_STEAMID: ""
+      ADMIN_NAME: ""
+
+    volumes:
+      - ./config:/config
+      - ./saves:/saves
+      - ./mods:/mods
+
+    ports:
+      - "27015:27015/udp"
+      - "27016:27016/udp"
+
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep -f DedicatedServer > /dev/null"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
